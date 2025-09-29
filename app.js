@@ -2,7 +2,8 @@ const $ = (s, c=document) => c.querySelector(s);
 const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
 
 document.addEventListener('DOMContentLoaded', () => {
-  const yearEl = $('#year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // Abrir wizard
   ['openWizardHero','openWizardNav'].forEach(id=>{
@@ -124,6 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showError(msg){ errorMsg.textContent = msg; }
   function clearError(){ errorMsg.textContent = ''; }
+
+  /* ========= FIX iOS/Safari: tocar la tarjeta marca el radio ========= */
+  $$('.opt, .opt-card').forEach(lbl => {
+    lbl.addEventListener('click', (e) => {
+      const inp = lbl.querySelector('input[type="radio"]');
+      if (inp) {
+        inp.checked = true;
+        const ev = new Event('change', { bubbles: true });
+        inp.dispatchEvent(ev);
+      }
+    }, true);
+  });
 
   // Contacto oculto → revelar
   const revealBtn = document.querySelector('.reveal-contact');

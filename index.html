@@ -6,25 +6,20 @@
   <title>ComparaAlarmas · Compara precios y elige tu alarma 24/7</title>
   <meta name="description" content="ComparaAlarmas: comparamos compañías de alarmas para hogar y negocio. Instalación rápida, monitoreo 24/7 y precio claro. Pide tu comparativa gratis." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="img/favicon.ico" />
   <!-- Preload hero (mejora LCP) -->
   <link rel="preload" as="image" href="img/hero-panel.avif" />
 
   <!-- Favicon clásico -->
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
-
-<!-- Favicons modernos -->
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-
-<!-- Apple Touch (iOS) -->
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-
-<!-- Android/Chrome -->
-<link rel="icon" sizes="192x192" href="img/android-chrome-192x192.png">
-<link rel="icon" sizes="512x512" href="img/android-chrome-512x512.png">
-
-
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <!-- Favicons modernos -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <!-- Apple Touch (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <!-- Android/Chrome -->
+  <link rel="icon" sizes="192x192" href="img/android-chrome-192x192.png">
+  <link rel="icon" sizes="512x512" href="img/android-chrome-512x512.png">
 </head>
 <body>
   <!-- Header -->
@@ -55,11 +50,11 @@
       <p>Analizamos opciones de las principales compañías para tu hogar o negocio. Te guiamos para elegir <strong>la mejor relación precio-protección</strong>.</p>
       <div class="hero__cta">
         <a class="btn" id="openWizardHero" href="#!">Solicitar comparativa</a>
+
+        <!-- Botón que REVELA solo el teléfono (sin email público) -->
         <button class="btn btn--ghost reveal-contact"
-                data-type="both"
-                data-tel="+34617525827"
-                data-email-user="dorianmiguelfloresbonilla"
-                data-email-domain="gmail.com">
+                aria-controls="contactRevealed"
+                data-tel="+34617525827">
           Mostrar contacto
         </button>
       </div>
@@ -165,7 +160,8 @@
         <p class="step-sub step-sub--big" id="stepSub">¿Qué es lo que quieres proteger? *</p>
       </header>
 
-      <form id="wizardForm" action="https://formspree.io/f/TU_CODIGO" method="POST" novalidate>
+
+      <form id="wizardForm" action="https://formspree.io/f/movkjlgp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="/gracias.html">
 
         <!-- 1 · común -->
