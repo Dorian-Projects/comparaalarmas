@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>¡Gracias! · ComparaAlarmas</title>
+  <meta name="description" content="Gracias por tu solicitud. Te contactaremos muy pronto con tu comparativa de alarmas." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="img/hero-panel.avif" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zM8 11l3 3 5-5"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>ComparaAlarmas</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html#beneficios">Ventajas</a>
+        <a href="index.html#como-funciona">Cómo comparamos</a>
+        <a href="index.html#opiniones">Opiniones</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Gracias">
+    <div class="container hero__content">
+      <h1>¡Gracias! 🎉</h1>
+      <p>Hemos recibido tu solicitud. Un asesor te llamará en breve con tu comparativa.</p>
+      <div class="hero__cta" style="margin-top:18px;">
+        <a class="btn" href="tel:+34617525827">Llamar ahora</a>
+        <a class="btn btn--ghost" href="https://wa.me/34617525827?text=Hola,%20quiero%20mi%20comparativa%20de%20alarmas" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 style="margin-top:0">¿Qué sigue?</h2>
+      <ol>
+        <li>Validamos tus respuestas.</li>
+        <li>Te mostramos 2–3 opciones ajustadas a tu caso.</li>
+        <li>Si te encaja, agendamos la instalación (24–72h).</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> ComparaAlarmas</p>
+      <p class="small muted">Logotipos propiedad de sus titulares. Uso identificativo.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
