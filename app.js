@@ -207,3 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return t.replace('+34','').trim().replace(/(\d{3})(\d{3})(\d{3,})/, '$1 $2 $3');
   }
 });
+
+// Abrir wizard si viene con hash #comparativa
+document.addEventListener('DOMContentLoaded', () => {
+  if (location.hash === '#comparativa') {
+    const btn = document.getElementById('openWizardHero') || document.getElementById('openWizardNav');
+    if (btn) btn.click(); // reutiliza la logica existente
+  }
+});
+
