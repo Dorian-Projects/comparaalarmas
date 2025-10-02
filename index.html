@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ComparaAlarmas · Compara precios y elige tu alarma 24/7</title>
-  <meta name="description" content="ComparaAlarmas: comparamos compañías de alarmas para hogar y negocio. Instalación rápida, monitoreo 24/7 y precio claro. Pide tu comparativa gratis." />
+  <meta name="description"
+    content="ComparaAlarmas: comparamos compañías de alarmas para hogar y negocio. Instalación rápida, monitoreo 24/7 y precio claro. Pide tu comparativa gratis." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="img/favicon.ico" />
   <!-- Preload hero (mejora LCP) -->
@@ -21,43 +23,122 @@
   <link rel="icon" sizes="192x192" href="img/android-chrome-192x192.png">
   <link rel="icon" sizes="512x512" href="img/android-chrome-512x512.png">
 
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s){
-    if(f.fbq)return; 
-    n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;
-    n.push=n; 
-    n.loaded=!0; 
-    n.version='2.0';
-    n.queue=[];
-    t=b.createElement(e);
-    t.async=!0;
-    t.src=v;
-    s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)
-  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  <!-- canonical + robots -->
+  <link rel="canonical" href="https://comparaalarmas.es/">
+  <meta name="robots" content="index,follow">
 
-  fbq('init', '2660686364264032'); 
-  fbq('track', 'PageView');
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComparaAlarmas">
+  <meta property="og:title" content="ComparaAlarmas · Compara precios y elige tu alarma 24/7">
+  <meta property="og:description"
+    content="Comparamos compañías de alarmas para hogar y negocio. Instalación rápida, monitoreo 24/7 y precio claro. Pide tu comparativa gratis.">
+  <meta property="og:url" content="https://comparaalarmas.es/">
+  <meta property="og:image" content="https://comparaalarmas.es/img/og-cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ComparaAlarmas · Compara precios y elige tu alarma 24/7">
+  <meta name="twitter:description"
+    content="Comparamos compañías de alarmas para hogar y negocio. Instalación rápida, monitoreo 24/7 y precio claro.">
+  <meta name="twitter:image" content="https://comparaalarmas.es/img/og-cover.jpg">
+
+  <!-- performance -->
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
+
+  <!-- JSON-LD (Organization + Website) -->
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"ComparaAlarmas",
+  "url":"https://comparaalarmas.es/",
+  "logo":"https://comparaalarmas.es/img/android-chrome-192x192.png",
+  "sameAs":[
+    "https://www.facebook.com/profile.php?id=100094000000000",
+    "https://www.instagram.com/tu_usuario"
+  ]
+}
 </script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=2660686364264032&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"ComparaAlarmas",
+  "url":"https://comparaalarmas.es/",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://comparaalarmas.es/?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"¿Tiene coste pedir la comparativa?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. La comparativa es 100% gratuita y sin compromiso."}
+    },
+    {
+      "@type":"Question",
+      "name":"¿En cuánto tiempo me llamáis?",
+      "acceptedAnswer":{"@type":"Answer","text":"Normalmente en menos de 1 hora en horario laboral."}
+    },
+    {
+      "@type":"Question",
+      "name":"¿Instalación y permanencia?",
+      "acceptedAnswer":{"@type":"Answer","text":"Depende de la compañía elegida. Mostramos opciones con y sin permanencia e instalación de 24–72h."}
+    }
+  ]
+}
+</script>
+
+
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '2660686364264032');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2660686364264032&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
 </head>
+
 <body>
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="#" class="brand" aria-label="Inicio ComparaAlarmas">
+      <a href="/" class="brand" aria-label="Inicio ComparaAlarmas">
         <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zM8 11l3 3 5-5"
-                fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zM8 11l3 3 5-5" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <span>ComparaAlarmas</span>
       </a>
@@ -75,14 +156,14 @@
     <div class="hero__overlay"></div>
     <div class="container hero__content">
       <h1>Compara y elige la mejor alarma 24/7</h1>
-      <p>Analizamos opciones de las principales compañías para tu hogar o negocio. Te guiamos para elegir <strong>la mejor relación precio-protección</strong>.</p>
+      <p>Analizamos opciones de las principales compañías para tu hogar o negocio. Te guiamos para elegir <strong>la
+          mejor relación precio-protección</strong>.</p>
       <div class="hero__cta">
-        <a class="btn" id="openWizardHero" href="#!">Solicitar comparativa</a>
+        <a class="btn" id="openWizardHero" href="#!" aria-label="Solicitar comparativa gratuita">Solicitar comparativa</a>
+
 
         <!-- Botón que REVELA solo el teléfono (sin email público) -->
-        <button class="btn btn--ghost reveal-contact"
-                aria-controls="contactRevealed"
-                data-tel="+34617525827">
+        <button class="btn btn--ghost reveal-contact" aria-controls="contactRevealed" data-tel="+34617525827">
           Mostrar contacto
         </button>
       </div>
@@ -168,14 +249,50 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> ComparaAlarmas · Compara, elige y protege</p>
-      <p class="small muted">Contacto disponible bajo demanda para evitar spam.</p>
-      <p class="small muted">Los logotipos mostrados pertenecen a sus respectivos titulares y se usan con fines identificativos.</p>
+  <section class="section alt" id="faq">
+    <div class="container card">
+      <h2 style="margin-top:0">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Tiene coste pedir la comparativa?</summary>
+        <p>No. La comparativa es 100% gratuita y sin compromiso.</p>
+      </details>
+      <details>
+        <summary>¿En cuánto tiempo me llamáis?</summary>
+        <p>Normalmente en menos de 1 hora en horario laboral.</p>
+      </details>
+      <details>
+        <summary>¿Instalación y permanencia?</summary>
+        <p>Depende de la compañía elegida. Te mostramos opciones con y sin permanencia y fechas de instalación de
+          24–72h.</p>
+      </details>
     </div>
-  </footer>
+  </section>
+
+  <!-- Footer -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-meta">
+      <p class="footer-brand">© <span id="year"></span> ComparaAlarmas</p>
+      <p class="small muted">Compara, elige y protege</p>
+    </div>
+
+    <p class="small muted">
+      Contacto disponible bajo demanda para evitar spam.
+    </p>
+    <p class="small muted">
+      Los logotipos mostrados pertenecen a sus respectivos titulares y se usan con fines identificativos.
+    </p>
+
+    <nav class="footer-links" aria-label="Enlaces legales">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="privacidad.html">Privacidad</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="cookies.html">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
 
   <!-- ============== MODAL · WIZARD (flujo hogar/negocio) ============== -->
   <div id="wizardModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="wizardTitle">
@@ -195,8 +312,10 @@
         <!-- 1 · común -->
         <section class="step step--active" data-title="¿Qué es lo que quieres proteger? *" data-flow="any">
           <div class="options">
-            <label class="opt"><input type="radio" name="proteger" value="Hogar" required><span class="opt-ui"><b>A</b> Hogar</span></label>
-            <label class="opt"><input type="radio" name="proteger" value="Negocio" required><span class="opt-ui"><b>B</b> Negocio</span></label>
+            <label class="opt"><input type="radio" name="proteger" value="Hogar" required><span class="opt-ui"><b>A</b>
+                Hogar</span></label>
+            <label class="opt"><input type="radio" name="proteger" value="Negocio" required><span
+                class="opt-ui"><b>B</b> Negocio</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
@@ -204,98 +323,125 @@
         <!-- ======== FLUJO HOGAR ======== -->
         <section class="step" data-flow="home" data-title="¿En qué tipo de vivienda quieres instalar la alarma? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="tipo_vivienda" value="Piso" required><span class="opt-ui"><b>A</b> Piso</span></label>
-            <label class="opt"><input type="radio" name="tipo_vivienda" value="Chalet" required><span class="opt-ui"><b>B</b> Chalet</span></label>
-            <label class="opt"><input type="radio" name="tipo_vivienda" value="Ático/Bajo" required><span class="opt-ui"><b>C</b> Ático/Bajo</span></label>
+            <label class="opt"><input type="radio" name="tipo_vivienda" value="Piso" required><span
+                class="opt-ui"><b>A</b> Piso</span></label>
+            <label class="opt"><input type="radio" name="tipo_vivienda" value="Chalet" required><span
+                class="opt-ui"><b>B</b> Chalet</span></label>
+            <label class="opt"><input type="radio" name="tipo_vivienda" value="Ático/Bajo" required><span
+                class="opt-ui"><b>C</b> Ático/Bajo</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="Uso de la vivienda *">
           <div class="options">
-            <label class="opt"><input type="radio" name="uso" value="Vivienda habitual" required><span class="opt-ui"><b>A</b> Vivienda habitual</span></label>
-            <label class="opt"><input type="radio" name="uso" value="Segunda residencia" required><span class="opt-ui"><b>B</b> Segunda residencia</span></label>
+            <label class="opt"><input type="radio" name="uso" value="Vivienda habitual" required><span
+                class="opt-ui"><b>A</b> Vivienda habitual</span></label>
+            <label class="opt"><input type="radio" name="uso" value="Segunda residencia" required><span
+                class="opt-ui"><b>B</b> Segunda residencia</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Dónde se encuentra tu vivienda? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="zona" value="Centro urbano" required><span class="opt-ui"><b>A</b> Centro urbano</span></label>
-            <label class="opt"><input type="radio" name="zona" value="Exterior del centro urbano" required><span class="opt-ui"><b>B</b> Exterior del centro urbano</span></label>
+            <label class="opt"><input type="radio" name="zona" value="Centro urbano" required><span
+                class="opt-ui"><b>A</b> Centro urbano</span></label>
+            <label class="opt"><input type="radio" name="zona" value="Exterior del centro urbano" required><span
+                class="opt-ui"><b>B</b> Exterior del centro urbano</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Qué tipo de acceso tiene? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="acceso" value="Portal a pie de calle" required><span class="opt-ui"><b>A</b> Portal a pie de calle</span></label>
-            <label class="opt"><input type="radio" name="acceso" value="Urbanización vigilada" required><span class="opt-ui"><b>B</b> Urbanización vigilada</span></label>
-            <label class="opt"><input type="radio" name="acceso" value="Urbanización NO vigilada" required><span class="opt-ui"><b>C</b> Urbanización NO vigilada</span></label>
+            <label class="opt"><input type="radio" name="acceso" value="Portal a pie de calle" required><span
+                class="opt-ui"><b>A</b> Portal a pie de calle</span></label>
+            <label class="opt"><input type="radio" name="acceso" value="Urbanización vigilada" required><span
+                class="opt-ui"><b>B</b> Urbanización vigilada</span></label>
+            <label class="opt"><input type="radio" name="acceso" value="Urbanización NO vigilada" required><span
+                class="opt-ui"><b>C</b> Urbanización NO vigilada</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Dispone de algún acceso secundario? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="secundario" value="Jardín o parcela" required><span class="opt-ui"><b>A</b> Jardín o parcela</span></label>
-            <label class="opt"><input type="radio" name="secundario" value="Balcón o terraza" required><span class="opt-ui"><b>B</b> Balcón o terraza</span></label>
-            <label class="opt"><input type="radio" name="secundario" value="No tiene" required><span class="opt-ui"><b>C</b> No tiene</span></label>
+            <label class="opt"><input type="radio" name="secundario" value="Jardín o parcela" required><span
+                class="opt-ui"><b>A</b> Jardín o parcela</span></label>
+            <label class="opt"><input type="radio" name="secundario" value="Balcón o terraza" required><span
+                class="opt-ui"><b>B</b> Balcón o terraza</span></label>
+            <label class="opt"><input type="radio" name="secundario" value="No tiene" required><span
+                class="opt-ui"><b>C</b> No tiene</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Cuántas estancias tiene tu vivienda? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="estancias" value="4 o más" required><span class="opt-ui"><b>A</b> 4 o más</span></label>
-            <label class="opt"><input type="radio" name="estancias" value="3" required><span class="opt-ui"><b>B</b> 3</span></label>
-            <label class="opt"><input type="radio" name="estancias" value="2" required><span class="opt-ui"><b>C</b> 2</span></label>
-            <label class="opt"><input type="radio" name="estancias" value="1" required><span class="opt-ui"><b>D</b> 1</span></label>
+            <label class="opt"><input type="radio" name="estancias" value="4 o más" required><span
+                class="opt-ui"><b>A</b> 4 o más</span></label>
+            <label class="opt"><input type="radio" name="estancias" value="3" required><span class="opt-ui"><b>B</b>
+                3</span></label>
+            <label class="opt"><input type="radio" name="estancias" value="2" required><span class="opt-ui"><b>C</b>
+                2</span></label>
+            <label class="opt"><input type="radio" name="estancias" value="1" required><span class="opt-ui"><b>D</b>
+                1</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Las ventanas tienen rejas? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="rejas" value="Sí" required><span class="opt-ui"><b>S</b> Sí</span></label>
-            <label class="opt"><input type="radio" name="rejas" value="No" required><span class="opt-ui"><b>N</b> No</span></label>
+            <label class="opt"><input type="radio" name="rejas" value="Sí" required><span class="opt-ui"><b>S</b>
+                Sí</span></label>
+            <label class="opt"><input type="radio" name="rejas" value="No" required><span class="opt-ui"><b>N</b>
+                No</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Tienes mascotas dentro de la vivienda? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="mascotas" value="Sí" required><span class="opt-ui"><b>S</b> Sí</span></label>
-            <label class="opt"><input type="radio" name="mascotas" value="No" required><span class="opt-ui"><b>N</b> No</span></label>
+            <label class="opt"><input type="radio" name="mascotas" value="Sí" required><span class="opt-ui"><b>S</b>
+                Sí</span></label>
+            <label class="opt"><input type="radio" name="mascotas" value="No" required><span class="opt-ui"><b>N</b>
+                No</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Permanece tu casa deshabitada..? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="deshabitada" value="Todo el día" required><span class="opt-ui"><b>A</b> Todo el día</span></label>
-            <label class="opt"><input type="radio" name="deshabitada" value="Entre 2 a 5 horas" required><span class="opt-ui"><b>B</b> Entre 2 a 5 horas</span></label>
-            <label class="opt"><input type="radio" name="deshabitada" value="1 o 2 horas" required><span class="opt-ui"><b>C</b> 1 o 2 horas</span></label>
-            <label class="opt"><input type="radio" name="deshabitada" value="Nunca" required><span class="opt-ui"><b>D</b> Nunca (siempre hay alguien)</span></label>
+            <label class="opt"><input type="radio" name="deshabitada" value="Todo el día" required><span
+                class="opt-ui"><b>A</b> Todo el día</span></label>
+            <label class="opt"><input type="radio" name="deshabitada" value="Entre 2 a 5 horas" required><span
+                class="opt-ui"><b>B</b> Entre 2 a 5 horas</span></label>
+            <label class="opt"><input type="radio" name="deshabitada" value="1 o 2 horas" required><span
+                class="opt-ui"><b>C</b> 1 o 2 horas</span></label>
+            <label class="opt"><input type="radio" name="deshabitada" value="Nunca" required><span
+                class="opt-ui"><b>D</b> Nunca (siempre hay alguien)</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="home" data-title="¿Han robado con anterioridad? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="robos_previos" value="Sí" required><span class="opt-ui"><b>S</b> Sí</span></label>
-            <label class="opt"><input type="radio" name="robos_previos" value="No" required><span class="opt-ui"><b>N</b> No</span></label>
+            <label class="opt"><input type="radio" name="robos_previos" value="Sí" required><span
+                class="opt-ui"><b>S</b> Sí</span></label>
+            <label class="opt"><input type="radio" name="robos_previos" value="No" required><span
+                class="opt-ui"><b>N</b> No</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
-        <section class="step" data-flow="home"
-                 data-title="¿Tienes alguna alarma instalada? *"
-                 data-skip-value="No"
-                 data-skip-count="1">
+        <section class="step" data-flow="home" data-title="¿Tienes alguna alarma instalada? *" data-skip-value="No"
+          data-skip-count="1">
           <div class="options">
-            <label class="opt"><input type="radio" name="alarma_instalada" value="Sí" required><span class="opt-ui"><b>S</b> Sí</span></label>
-            <label class="opt"><input type="radio" name="alarma_instalada" value="No" required><span class="opt-ui"><b>N</b> No</span></label>
+            <label class="opt"><input type="radio" name="alarma_instalada" value="Sí" required><span
+                class="opt-ui"><b>S</b> Sí</span></label>
+            <label class="opt"><input type="radio" name="alarma_instalada" value="No" required><span
+                class="opt-ui"><b>N</b> No</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
@@ -303,69 +449,92 @@
         <!-- ======== FLUJO NEGOCIO ======== -->
         <section class="step" data-flow="business" data-title="¿En qué tipo de negocio quieres instalar la alarma? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="tipo_negocio" value="Oficina" required><span class="opt-ui"><b>A</b> Oficina</span></label>
-            <label class="opt"><input type="radio" name="tipo_negocio" value="Comercio" required><span class="opt-ui"><b>B</b> Comercio</span></label>
-            <label class="opt"><input type="radio" name="tipo_negocio" value="Nave" required><span class="opt-ui"><b>C</b> Nave</span></label>
-            <label class="opt"><input type="radio" name="tipo_negocio" value="Otro" required><span class="opt-ui"><b>D</b> Otro</span></label>
+            <label class="opt"><input type="radio" name="tipo_negocio" value="Oficina" required><span
+                class="opt-ui"><b>A</b> Oficina</span></label>
+            <label class="opt"><input type="radio" name="tipo_negocio" value="Comercio" required><span
+                class="opt-ui"><b>B</b> Comercio</span></label>
+            <label class="opt"><input type="radio" name="tipo_negocio" value="Nave" required><span
+                class="opt-ui"><b>C</b> Nave</span></label>
+            <label class="opt"><input type="radio" name="tipo_negocio" value="Otro" required><span
+                class="opt-ui"><b>D</b> Otro</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
-        <section class="step" data-flow="business" data-title="¿Tu negocio es de nueva apertura o ya está en funcionamiento? *">
+        <section class="step" data-flow="business"
+          data-title="¿Tu negocio es de nueva apertura o ya está en funcionamiento? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="estado_negocio" value="Nueva apertura" required><span class="opt-ui"><b>A</b> Sí, es una nueva apertura</span></label>
-            <label class="opt"><input type="radio" name="estado_negocio" value="En funcionamiento" required><span class="opt-ui"><b>B</b> No, ya está en funcionamiento</span></label>
-            <label class="opt"><input type="radio" name="estado_negocio" value="Preparando apertura" required><span class="opt-ui"><b>C</b> Todavía no lo hemos abierto, pero estamos preparando todo</span></label>
-            <label class="opt"><input type="radio" name="estado_negocio" value="Futuro negocio" required><span class="opt-ui"><b>D</b> Estoy buscando para un futuro negocio</span></label>
+            <label class="opt"><input type="radio" name="estado_negocio" value="Nueva apertura" required><span
+                class="opt-ui"><b>A</b> Sí, es una nueva apertura</span></label>
+            <label class="opt"><input type="radio" name="estado_negocio" value="En funcionamiento" required><span
+                class="opt-ui"><b>B</b> No, ya está en funcionamiento</span></label>
+            <label class="opt"><input type="radio" name="estado_negocio" value="Preparando apertura" required><span
+                class="opt-ui"><b>C</b> Todavía no lo hemos abierto, pero estamos preparando todo</span></label>
+            <label class="opt"><input type="radio" name="estado_negocio" value="Futuro negocio" required><span
+                class="opt-ui"><b>D</b> Estoy buscando para un futuro negocio</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="business" data-title="¿En qué zona se encuentra el negocio? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="zona_negocio" value="Dentro del núcleo urbano" required><span class="opt-ui"><b>A</b> Dentro del núcleo urbano</span></label>
-            <label class="opt"><input type="radio" name="zona_negocio" value="Fuera del núcleo urbano" required><span class="opt-ui"><b>B</b> Fuera del núcleo urbano</span></label>
+            <label class="opt"><input type="radio" name="zona_negocio" value="Dentro del núcleo urbano" required><span
+                class="opt-ui"><b>A</b> Dentro del núcleo urbano</span></label>
+            <label class="opt"><input type="radio" name="zona_negocio" value="Fuera del núcleo urbano" required><span
+                class="opt-ui"><b>B</b> Fuera del núcleo urbano</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="business" data-title="Tipo de acceso al negocio *">
           <div class="options">
-            <label class="opt"><input type="radio" name="acceso_negocio" value="A pie de calle" required><span class="opt-ui"><b>A</b> A pie de calle</span></label>
-            <label class="opt"><input type="radio" name="acceso_negocio" value="Local en Centro Comercial" required><span class="opt-ui"><b>B</b> Local en Centro Comercial</span></label>
-            <label class="opt"><input type="radio" name="acceso_negocio" value="Bloque de oficinas" required><span class="opt-ui"><b>C</b> Bloque de oficinas</span></label>
-            <label class="opt"><input type="radio" name="acceso_negocio" value="Nave en Polígono Industrial" required><span class="opt-ui"><b>D</b> Nave en Polígono Industrial</span></label>
-            <label class="opt"><input type="radio" name="acceso_negocio" value="Oficina en edificio empresarial" required><span class="opt-ui"><b>E</b> Oficina en edificio empresarial</span></label>
+            <label class="opt"><input type="radio" name="acceso_negocio" value="A pie de calle" required><span
+                class="opt-ui"><b>A</b> A pie de calle</span></label>
+            <label class="opt"><input type="radio" name="acceso_negocio" value="Local en Centro Comercial"
+                required><span class="opt-ui"><b>B</b> Local en Centro Comercial</span></label>
+            <label class="opt"><input type="radio" name="acceso_negocio" value="Bloque de oficinas" required><span
+                class="opt-ui"><b>C</b> Bloque de oficinas</span></label>
+            <label class="opt"><input type="radio" name="acceso_negocio" value="Nave en Polígono Industrial"
+                required><span class="opt-ui"><b>D</b> Nave en Polígono Industrial</span></label>
+            <label class="opt"><input type="radio" name="acceso_negocio" value="Oficina en edificio empresarial"
+                required><span class="opt-ui"><b>E</b> Oficina en edificio empresarial</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="business" data-title="¿Qué horario tiene el negocio? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="horario_negocio" value="Mañanas" required><span class="opt-ui"><b>A</b> Mañanas</span></label>
-            <label class="opt"><input type="radio" name="horario_negocio" value="Tardes" required><span class="opt-ui"><b>B</b> Tardes</span></label>
-            <label class="opt"><input type="radio" name="horario_negocio" value="Mañanas y tardes" required><span class="opt-ui"><b>C</b> Mañanas y tardes</span></label>
-            <label class="opt"><input type="radio" name="horario_negocio" value="Nocturno" required><span class="opt-ui"><b>D</b> Nocturno</span></label>
-            <label class="opt"><input type="radio" name="horario_negocio" value="24h" required><span class="opt-ui"><b>E</b> Abierto 24 horas</span></label>
+            <label class="opt"><input type="radio" name="horario_negocio" value="Mañanas" required><span
+                class="opt-ui"><b>A</b> Mañanas</span></label>
+            <label class="opt"><input type="radio" name="horario_negocio" value="Tardes" required><span
+                class="opt-ui"><b>B</b> Tardes</span></label>
+            <label class="opt"><input type="radio" name="horario_negocio" value="Mañanas y tardes" required><span
+                class="opt-ui"><b>C</b> Mañanas y tardes</span></label>
+            <label class="opt"><input type="radio" name="horario_negocio" value="Nocturno" required><span
+                class="opt-ui"><b>D</b> Nocturno</span></label>
+            <label class="opt"><input type="radio" name="horario_negocio" value="24h" required><span
+                class="opt-ui"><b>E</b> Abierto 24 horas</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
         <section class="step" data-flow="business" data-title="¿Han robado con anterioridad? *">
           <div class="options">
-            <label class="opt"><input type="radio" name="robos_previos_negocio" value="Sí" required><span class="opt-ui"><b>S</b> Sí</span></label>
-            <label class="opt"><input type="radio" name="robos_previos_negocio" value="No" required><span class="opt-ui"><b>N</b> No</span></label>
+            <label class="opt"><input type="radio" name="robos_previos_negocio" value="Sí" required><span
+                class="opt-ui"><b>S</b> Sí</span></label>
+            <label class="opt"><input type="radio" name="robos_previos_negocio" value="No" required><span
+                class="opt-ui"><b>N</b> No</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
 
-        <section class="step" data-flow="business"
-                 data-title="¿Tienes alguna alarma instalada? *"
-                 data-skip-value="No"
-                 data-skip-count="1">
+        <section class="step" data-flow="business" data-title="¿Tienes alguna alarma instalada? *" data-skip-value="No"
+          data-skip-count="1">
           <div class="options">
-            <label class="opt"><input type="radio" name="alarma_instalada_negocio" value="Sí" required><span class="opt-ui"><b>S</b> Sí</span></label>
-            <label class="opt"><input type="radio" name="alarma_instalada_negocio" value="No" required><span class="opt-ui"><b>N</b> No</span></label>
+            <label class="opt"><input type="radio" name="alarma_instalada_negocio" value="Sí" required><span
+                class="opt-ui"><b>S</b> Sí</span></label>
+            <label class="opt"><input type="radio" name="alarma_instalada_negocio" value="No" required><span
+                class="opt-ui"><b>N</b> No</span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
@@ -375,12 +544,20 @@
         <section class="step" data-flow="any" data-title="¿Con qué compañía? *">
           <p class="hint">Te haremos una comparativa a partir de tu selección.</p>
           <div class="options cards">
-            <label class="opt-card"><input type="radio" name="compania" value="Sicor" required><span class="card-ui"><img src="img/logos/logo-sicor.webp" alt="Sicor"><em>Sicor</em></span></label>
-            <label class="opt-card"><input type="radio" name="compania" value="Otra" required><span class="card-ui"><img src="img/logos/logo-otra.webp" alt="Otra"><em>Otra</em></span></label>
-            <label class="opt-card"><input type="radio" name="compania" value="Securitas Direct" required><span class="card-ui"><img src="img/logos/logo-securitas.webp" alt="Securitas Direct"><em>Securitas Direct</em></span></label>
-            <label class="opt-card"><input type="radio" name="compania" value="ADT" required><span class="card-ui"><img src="img/logos/logo-adt.webp" alt="ADT"><em>ADT</em></span></label>
-            <label class="opt-card"><input type="radio" name="compania" value="Segurma" required><span class="card-ui"><img src="img/logos/logo-segurma.webp" alt="Segurma"><em>Segurma</em></span></label>
-            <label class="opt-card"><input type="radio" name="compania" value="Movistar-Prosegur" required><span class="card-ui"><img src="img/logos/logo-prosegur.webp" alt="Movistar Prosegur"><em>Movistar-Prosegur</em></span></label>
+            <label class="opt-card"><input type="radio" name="compania" value="Sicor" required><span
+                class="card-ui"><img src="img/logos/logo-sicor.webp" alt="Sicor"><em>Sicor</em></span></label>
+            <label class="opt-card"><input type="radio" name="compania" value="Otra" required><span class="card-ui"><img
+                  src="img/logos/logo-otra.webp" alt="Otra"><em>Otra</em></span></label>
+            <label class="opt-card"><input type="radio" name="compania" value="Securitas Direct" required><span
+                class="card-ui"><img src="img/logos/logo-securitas.webp" alt="Securitas Direct"><em>Securitas
+                  Direct</em></span></label>
+            <label class="opt-card"><input type="radio" name="compania" value="ADT" required><span class="card-ui"><img
+                  src="img/logos/logo-adt.webp" alt="ADT"><em>ADT</em></span></label>
+            <label class="opt-card"><input type="radio" name="compania" value="Segurma" required><span
+                class="card-ui"><img src="img/logos/logo-segurma.webp" alt="Segurma"><em>Segurma</em></span></label>
+            <label class="opt-card"><input type="radio" name="compania" value="Movistar-Prosegur" required><span
+                class="card-ui"><img src="img/logos/logo-prosegur.webp"
+                  alt="Movistar Prosegur"><em>Movistar-Prosegur</em></span></label>
           </div>
           <button type="button" class="btn next">Aceptar</button>
         </section>
@@ -388,10 +565,14 @@
         <!-- Final -->
         <section class="step" data-flow="any" data-title="¡Ya tenemos tu comparativa! Déjanos tus datos:">
           <div class="final-fields">
-            <div class="field"><label for="fnombre">Nombre *</label><input id="fnombre" name="nombre" type="text" required></div>
-            <div class="field"><label for="fapellidos">Apellidos *</label><input id="fapellidos" name="apellidos" type="text" required></div>
-            <div class="field"><label for="ftelefono">Teléfono *</label><input id="ftelefono" name="telefono" type="tel" inputmode="tel" pattern="[0-9 +]{6,}" placeholder="612 34 56 78" required></div>
-            <div class="field"><label for="femail">Correo electrónico *</label><input id="femail" name="email" type="email" placeholder="nombre@ejemplo.com" required></div>
+            <div class="field"><label for="fnombre">Nombre *</label><input id="fnombre" name="nombre" type="text"
+                required></div>
+            <div class="field"><label for="fapellidos">Apellidos *</label><input id="fapellidos" name="apellidos"
+                type="text" required></div>
+            <div class="field"><label for="ftelefono">Teléfono *</label><input id="ftelefono" name="telefono" type="tel"
+                inputmode="tel" pattern="[0-9 +]{6,}" placeholder="612 34 56 78" required></div>
+            <div class="field"><label for="femail">Correo electrónico *</label><input id="femail" name="email"
+                type="email" placeholder="nombre@ejemplo.com" required></div>
           </div>
           <input type="hidden" name="_subject" value="Nueva solicitud de comparativa · ComparaAlarmas">
           <input type="text" name="_gotcha" style="display:none">
@@ -401,36 +582,55 @@
 
         <p id="errorMsg" class="error" role="alert" aria-live="polite"></p>
 
-        <div class="progress"><div class="bar" id="progressBar" style="width:7%"></div></div>
+        <div class="progress">
+          <div class="bar" id="progressBar" style="width:7%"></div>
+        </div>
       </form>
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <!-- Overlay de carga con logos -->
+  <div id="loadingOverlay" class="loading-overlay" aria-hidden="true">
+    <div class="loading-box">
+      <p class="loading-text">🔍 Estamos buscando la mejor empresa para ti...</p>
+      <div class="logo-strip">
+        <img src="img/logos/logo-securitas.webp" alt="Securitas Direct" />
+        <img src="img/logos/logo-adt.webp" alt="ADT" />
+        <img src="img/logos/logo-prosegur.webp" alt="Movistar Prosegur" />
+        <img src="img/logos/logo-sicor.webp" alt="Sicor" />
+        <img src="img/logos/logo-segurma.webp" alt="Segurma" />
+      </div>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+
+  <script src="app.js" defer></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Botón del menú superior
-    var btnMenu = document.getElementById("openWizardNav");
-    if(btnMenu){
-      btnMenu.addEventListener("click", function() {
-        fbq('track', 'Lead', {
-          content_name: 'Solicitud de comparativa - Menú superior'
+    document.addEventListener("DOMContentLoaded", function () {
+      // Botón del menú superior
+      var btnMenu = document.getElementById("openWizardNav");
+      if (btnMenu) {
+        btnMenu.addEventListener("click", function () {
+          fbq('track', 'Lead', {
+            content_name: 'Solicitud de comparativa - Menú superior'
+          });
         });
-      });
-    }
+      }
 
-    // Botón central grande
-    var btnCentral = document.getElementById("openWizardHero");
-    if(btnCentral){
-      btnCentral.addEventListener("click", function() {
-        fbq('track', 'Lead', {
-          content_name: 'Solicitud de comparativa - Botón central'
+      // Botón central grande
+      var btnCentral = document.getElementById("openWizardHero");
+      if (btnCentral) {
+        btnCentral.addEventListener("click", function () {
+          fbq('track', 'Lead', {
+            content_name: 'Solicitud de comparativa - Botón central'
+          });
         });
-      });
-    }
-  });
-</script>
+      }
+    });
+  </script>
 
 </body>
+
 </html>

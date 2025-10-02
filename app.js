@@ -5,12 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Abrir wizard
-  ['openWizardHero','openWizardNav'].forEach(id=>{
-    const btn = document.getElementById(id);
-    btn?.addEventListener('click', e => { e.preventDefault(); openModal(); });
-  });
-
   const modal = document.getElementById('wizardModal');
   const closeBtn = document.getElementById('closeWizard');
   const form = document.getElementById('wizardForm');
@@ -23,6 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
   let current = 0;
   let flow = null;  // 'home' | 'business'
   let steps = [];
+
+  // ===== Loading overlay
+  const loading = document.getElementById('loadingOverlay');
+  let loadingTimer = null;
+  function showLoading(){
+    if(!loading) return;
+    loading.classList.add('active');
+    document.body.classList.add('no-scroll');
+  }
+  function hideLoading(){
+    if(!loading) return;
+    loading.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  }
+  function isFinalStep(stepEl){
+    return !!(stepEl && stepEl.querySelector('.final-fields'));
+  }
 
   function pickFlowFromAnswer(){
     const choice = form.querySelector('input[name="proteger"]:checked');
@@ -43,15 +54,33 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
   window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
+  // Abrir wizard (sin overlay aquí)
+  ['openWizardHero','openWizardNav'].forEach(id=>{
+    const btn = document.getElementById(id);
+    btn?.addEventListener('click', e => {
+      e.preventDefault();
+      try{
+        fbq('track','Lead',{ content_name: id === 'openWizardHero'
+          ? 'Solicitud de comparativa - Botón central'
+          : 'Solicitud de comparativa - Menú superior'
+        });
+      }catch{}
+      openModal();
+    });
+  });
+
   // Avanzar pasos
   form.querySelectorAll('.next').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      if(!validateStep(current)){ showError('⚠️ Selecciona una opción para continuar.'); return; }
+      if(!validateStep(current)){
+        showError('⚠️ Selecciona una opción para continuar.');
+        return;
+      }
 
-      if (current === 0) { // primera pregunta
+      if (current === 0) { // primera pregunta: fija el flujo
         pickFlowFromAnswer();
         steps = getActiveSteps();
-        current = 0; // ahora arranca el flujo
+        current = 0;
       }
 
       const stepEl = steps[current];
@@ -66,19 +95,37 @@ document.addEventListener('DOMContentLoaded', () => {
         jump = 1 + skipCount;
       }
 
+      // Calculamos a dónde vamos
+      const nextIndex = Math.min(current + jump, steps.length - 1);
+      const nextStepEl = steps[nextIndex];
+
+      // Tras la animación corta de salida, decidimos si mostramos overlay
       setTimeout(()=>{
         stepEl.classList.remove('step--leaving');
-        current += jump;
-        if (current >= steps.length) current = steps.length - 1;
-        updateUI();
-      }, 200);
+
+        if (isFinalStep(nextStepEl)) {
+          // Mostrar overlay antes del formulario final
+          showLoading();
+          clearTimeout(loadingTimer);
+          loadingTimer = setTimeout(()=>{
+            current = nextIndex;
+            updateUI();
+            hideLoading();
+          }, 1400);
+        } else {
+          // Avance normal
+          current = nextIndex;
+          updateUI();
+        }
+      }, 200); // coincide con animación .step--leaving
     });
   });
 
   // Envío final
   form.addEventListener('submit', e=>{
     if(!validateStep(current)){
-      e.preventDefault(); showError('Completa todos los campos obligatorios.'); return;
+      e.preventDefault(); showError('Completa todos los campos obligatorios.');
+      return;
     }
     const submitBtn = $('button[type="submit"]', steps[current]);
     if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
@@ -149,12 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = `${user}@${dom}`;
       revealedBox.innerHTML = `
         📞 <a href="tel:${tel.replace(/\s/g,'')}">${formateaTel(tel)}</a>
-        &nbsp;&nbsp;·&nbsp;&nbsp;
-        ✉️ <a href="mailto:${email}">${email}</a>
+        
+
       `;
       revealedBox.hidden = false;
       revealBtn.remove();
     });
   }
-  function formateaTel(t){ return t.replace('+34','').trim().replace(/(\d{3})(\d{3})(\d{3,})/, '$1 $2 $3'); }
+  function formateaTel(t){
+    return t.replace('+34','').trim().replace(/(\d{3})(\d{3})(\d{3,})/, '$1 $2 $3');
+  }
 });
