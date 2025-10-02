@@ -3,82 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>¡Gracias! · ComparaAlarmas</title>
+  <title>Gracias · ComparaAlarmas</title>
   <meta name="description" content="Gracias por tu solicitud. Te contactaremos muy pronto con tu comparativa de alarmas." />
+  <link rel="canonical" href="https://comparaalarmas.es/gracias.html">
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preload" as="image" href="img/hero-panel.avif" />
+
+  <!-- OG básico (opcional) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gracias · ComparaAlarmas">
+  <meta property="og:description" content="Hemos recibido tu solicitud. Te contactaremos en breve con tu comparativa.">
+  <meta property="og:url" content="https://comparaalarmas.es/gracias.html">
+  <meta property="og:image" content="https://comparaalarmas.es/img/og-cover.jpg">
+
+  <!-- Pixel: marcamos conversión al aterrizar en esta página -->
   <script>
-  
-  try { fbq('track','CompleteRegistration'); } catch(e){}
-  
-</script>
-
+    window.addEventListener('DOMContentLoaded', function(){
+      try { fbq('track','CompleteRegistration'); } catch(e){}
+    });
+  </script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="brand">
-        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zM8 11l3 3 5-5"
-            fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>ComparaAlarmas</span>
-      </a>
-      <nav class="main-nav">
-        <a href="index.html#beneficios">Ventajas</a>
-        <a href="index.html#como-funciona">Cómo comparamos</a>
-        <a href="index.html#opiniones">Opiniones</a>
-      </nav>
-    </div>
-  </header>
+<body class="ty-bg">
+  <main class="ty-wrap" role="main">
+    <a href="/" class="ty-brand" aria-label="Volver al inicio">
+      <!-- pequeño logo inline para no cargar imágenes extra -->
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zM8 11l3 3 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>ComparaAlarmas</span>
+    </a>
 
-  <section class="hero" aria-label="Gracias">
-    <div class="container hero__content">
-      <h1>¡Gracias! 🎉</h1>
-      <p>Hemos recibido tu solicitud. Un asesor te llamará en breve con tu comparativa.</p>
-      <div class="hero__cta" style="margin-top:18px;">
+    <section class="ty-card" aria-labelledby="ty-title">
+      <div class="ty-icon" aria-hidden="true">✔</div>
+      <h1 id="ty-title">¡Gracias!</h1>
+      <p class="ty-lead">Hemos recibido tu solicitud. Un asesor te llamará en breve con tu comparativa.</p>
+
+      <div class="ty-actions">
         <a class="btn" href="tel:+34617525827">Llamar ahora</a>
-        <a class="btn btn--ghost" href="https://wa.me/34617525827?text=Hola,%20quiero%20mi%20comparativa%20de%20alarmas" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--outline" href="https://wa.me/34617525827?text=Hola,%20quiero%20mi%20comparativa%20de%20alarmas" target="_blank" rel="noopener">WhatsApp</a>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container card">
-      <h2 style="margin-top:0">¿Qué sigue?</h2>
-      <ol>
-        <li>Validamos tus respuestas.</li>
-        <li>Te mostramos 2–3 opciones ajustadas a tu caso.</li>
-        <li>Si te encaja, agendamos la instalación (24–72h).</li>
-      </ol>
-    </div>
-  </section>
+      <p class="ty-note">¿Te has equivocado en algún dato? Responde al WhatsApp con la corrección y lo actualizamos al momento.</p>
 
-  <!-- Footer -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-meta">
-      <p class="footer-brand">© <span id="year"></span> ComparaAlarmas</p>
-      <p class="small muted">Compara, elige y protege</p>
-    </div>
+      <a class="ty-back" href="/">← Volver al inicio</a>
+    </section>
 
-    <p class="small muted">
-      Contacto disponible bajo demanda para evitar spam.
-    </p>
-    <p class="small muted">
-      Los logotipos mostrados pertenecen a sus respectivos titulares y se usan con fines identificativos.
-    </p>
+    <footer class="ty-footer">
+      <p>© <span id="year"></span> ComparaAlarmas · Compara, elige y protege</p>
+    </footer>
+  </main>
 
-    <nav class="footer-links" aria-label="Enlaces legales">
-      <a href="aviso-legal.html">Aviso legal</a>
-      <span class="sep" aria-hidden="true">·</span>
-      <a href="privacidad.html">Privacidad</a>
-      <span class="sep" aria-hidden="true">·</span>
-      <a href="cookies.html">Cookies</a>
-    </nav>
-  </div>
-</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
