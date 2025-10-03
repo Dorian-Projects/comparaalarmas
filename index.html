@@ -74,7 +74,7 @@
   }
 }
 </script>
-<script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"FAQPage",
@@ -100,34 +100,23 @@
 
 
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return;
-      n = f.fbq = function () {
-        n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n;
-      n.push = n;
-      n.loaded = !0;
-      n.version = '2.0';
-      n.queue = [];
-      t = b.createElement(e);
-      t.async = !0;
-      t.src = v;
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '2660686364264032');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=2660686364264032&ev=PageView&noscript=1" />
-  </noscript>
-  <!-- End Meta Pixel Code -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2006539736764025');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2006539736764025&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
 </head>
 
@@ -159,7 +148,8 @@
       <p>Analizamos opciones de las principales compañías para tu hogar o negocio. Te guiamos para elegir <strong>la
           mejor relación precio-protección</strong>.</p>
       <div class="hero__cta">
-        <a class="btn" id="openWizardHero" href="#!" aria-label="Solicitar comparativa gratuita">Solicitar comparativa</a>
+        <a class="btn" id="openWizardHero" href="#!" aria-label="Solicitar comparativa gratuita">Solicitar
+          comparativa</a>
 
 
         <!-- Botón que REVELA solo el teléfono (sin email público) -->
@@ -269,29 +259,29 @@
   </section>
 
   <!-- Footer -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-meta">
-      <p class="footer-brand">© <span id="year"></span> ComparaAlarmas</p>
-      <p class="small muted">Compara, elige y protege</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p class="footer-brand">© <span id="year"></span> ComparaAlarmas</p>
+        <p class="small muted">Compara, elige y protege</p>
+      </div>
+
+      <p class="small muted">
+        Contacto disponible bajo demanda para evitar spam.
+      </p>
+      <p class="small muted">
+        Los logotipos mostrados pertenecen a sus respectivos titulares y se usan con fines identificativos.
+      </p>
+
+      <nav class="footer-links" aria-label="Enlaces legales">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="privacidad.html">Privacidad</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="cookies.html">Cookies</a>
+      </nav>
     </div>
-
-    <p class="small muted">
-      Contacto disponible bajo demanda para evitar spam.
-    </p>
-    <p class="small muted">
-      Los logotipos mostrados pertenecen a sus respectivos titulares y se usan con fines identificativos.
-    </p>
-
-    <nav class="footer-links" aria-label="Enlaces legales">
-      <a href="aviso-legal.html">Aviso legal</a>
-      <span class="sep" aria-hidden="true">·</span>
-      <a href="privacidad.html">Privacidad</a>
-      <span class="sep" aria-hidden="true">·</span>
-      <a href="cookies.html">Cookies</a>
-    </nav>
-  </div>
-</footer>
+  </footer>
 
 
   <!-- ============== MODAL · WIZARD (flujo hogar/negocio) ============== -->
