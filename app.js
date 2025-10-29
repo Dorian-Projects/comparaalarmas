@@ -1,27 +1,32 @@
 const $ = (s, c=document) => c.querySelector(s);
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Año dinámico en footer
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  const modal = document.getElementById('wizardModal');
-  const closeBtn = document.getElementById('closeWizard');
-  const form = document.getElementById('wizardForm');
-  const errorMsg = document.getElementById('errorMsg');
-  const loading = document.getElementById('loadingOverlay');
-  const submitBtn = document.getElementById('submitBtn');
-
+  // Elementos que pueden existir o no en cada página
+  const modal        = document.getElementById('wizardModal');
+  const closeBtn     = document.getElementById('closeWizard');
+  const openHeroBtn  = document.getElementById('openWizardHero'); // botón grande / CTA principal
+  const openNavBtn   = document.getElementById('openWizardNav');  // botón menú superior
+  const loading      = document.getElementById('loadingOverlay');
+  const errorMsg     = document.getElementById('errorMsg');
 
   const FORM_ENDPOINT = "https://formspree.io/f/movkjlgp";
 
+  // Abrir / cerrar modal
   function openModal(){
+    if (!modal) return;
     modal.setAttribute('aria-hidden','false');
     if (errorMsg) errorMsg.textContent = '';
   }
   function closeModal(){
+    if (!modal) return;
     modal.setAttribute('aria-hidden','true');
   }
 
+  // Overlay loading
   function showLoading(){
     if(!loading) return;
     loading.classList.add('active');
@@ -33,31 +38,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('no-scroll');
   }
 
-  // abrir modal desde botones
-  ['openWizardHero','openWizardNav'].forEach(id=>{
-    const btn = document.getElementById(id);
-    if (!btn) return;
-    btn.addEventListener('click', e => {
+  // Eventos abrir modal
+  if (openHeroBtn) {
+    openHeroBtn.addEventListener('click', e => {
       e.preventDefault();
       try{
-        fbq('track','Lead',{
-          content_name: id === 'openWizardHero'
-            ? 'Solicitud de comparativa - Botón central'
-            : 'Solicitud de comparativa - Menú superior'
-        });
+        fbq('track','Lead',{ content_name:'Solicitud de comparativa - Botón principal' });
       }catch{}
       openModal();
     });
-  });
+  }
+  if (openNavBtn) {
+    openNavBtn.addEventListener('click', e => {
+      e.preventDefault();
+      try{
+        fbq('track','Lead',{ content_name:'Solicitud de comparativa - Menú superior' });
+      }catch{}
+      openModal();
+    });
+  }
 
-  // cerrar modal
-  closeBtn.addEventListener('click', closeModal);
+  // Cerrar modal
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
   window.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
   window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-  // envío personalizado (bloqueamos submit normal)
+  // Abrir modal si visitan con #comparativa en la URL
+  if (location.hash === '#comparativa' && (openHeroBtn || openNavBtn)) {
+    (openHeroBtn || openNavBtn).click();
+  }
+
+  // ====== FORMULARIO (dentro del modal) ======
+  const form = document.getElementById('wizardForm');
+  if (!form) return; // si en esta página no hay modal/form, paramos
+
+  const submitBtn = document.getElementById('submitBtn');
+  const errBox    = document.getElementById('errorMsg');
+
   form.addEventListener('submit', async e => {
-    e.preventDefault(); // <-- MUY IMPORTANTE: ahora SÍ lo bloqueamos siempre
+    e.preventDefault(); // no envío nativo
 
     const nombre      = form.querySelector('#fnombre');
     const telefono    = form.querySelector('#ftelefono');
@@ -65,49 +86,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const cp          = form.querySelector('#fcpostal');
     const honeypotBot = form.querySelector('input[name="_gotcha"]');
 
-    // validar campos obligatorios
+    // validaciones mínimas
     if(
-      !nombre.value.trim() ||
-      !telefono.value.trim() ||
-      !ciudad.value.trim() ||
-      !cp.value.trim()
+      !nombre?.value.trim() ||
+      !telefono?.value.trim() ||
+      !ciudad?.value.trim() ||
+      !cp?.value.trim()
     ){
-      if (errorMsg) errorMsg.textContent = '⚠️ Rellena todos los campos obligatorios.';
+      if (errBox) errBox.textContent = '⚠️ Rellena todos los campos obligatorios.';
       return;
     }
 
-    // validar teléfono
-    if(!telefono.checkValidity()){
-      if (errorMsg) errorMsg.textContent = '⚠️ Revisa el teléfono.';
+    if(telefono && !telefono.checkValidity()){
+      if (errBox) errBox.textContent = '⚠️ Revisa el teléfono.';
       return;
     }
 
-    // validar CP
-    if(!cp.checkValidity()){
-      if (errorMsg) errorMsg.textContent = '⚠️ Código postal no válido.';
+    if(cp && !cp.checkValidity()){
+      if (errBox) errBox.textContent = '⚠️ Código postal no válido.';
       return;
     }
 
-    // anti bot
     if(honeypotBot && honeypotBot.value.trim() !== ""){
-      if (errorMsg) errorMsg.textContent = '⚠️ Error de validación.';
+      if (errBox) errBox.textContent = '⚠️ Error de validación.';
       return;
     }
 
-    // todo ok → UI de envío
-    if (errorMsg) errorMsg.textContent = '';
+    // estado "enviando"
+    if (errBox) errBox.textContent = '';
     if (submitBtn){
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
     }
     showLoading();
 
-    // construimos payload para Formspree
+    // origen de la landing para que lo veas en el email
+    const origenAttr = form.getAttribute('data-origen') || 'home';
+
     const payload = {
       nombre: nombre.value.trim(),
       telefono: telefono.value.trim(),
       ciudad: ciudad.value.trim(),
-      codigo_postal: cp.value.trim()
+      codigo_postal: cp.value.trim(),
+      origen_landing: origenAttr
     };
 
     try {
@@ -121,33 +142,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (res.ok) {
-        // éxito → redirigimos nosotros a tu página gracias
         window.location.href = "https://comparaalarmas.es/gracias.html";
         return;
       } else {
-        // fallo en Formspree
         hideLoading();
         if (submitBtn){
           submitBtn.disabled = false;
           submitBtn.textContent = 'Enviar solicitud';
         }
-        if (errorMsg) errorMsg.textContent = '⚠️ Error enviando el formulario. Llámanos al 617 525 827.';
+        if (errBox) errBox.textContent = '⚠️ Error enviando. Si prefieres llama ahora al 617 525 827.';
       }
 
     } catch (err) {
-      // error de red / conexión
       hideLoading();
       if (submitBtn){
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar solicitud';
       }
-      if (errorMsg) errorMsg.textContent = '⚠️ No se ha podido enviar. Llámanos al 617 525 827.';
+      if (errBox) errBox.textContent = '⚠️ No se ha podido enviar. Llámanos al 617 525 827.';
     }
   });
-
-  // acceso directo con #comparativa
-  if (location.hash === '#comparativa') {
-    const btn = document.getElementById('openWizardHero') || document.getElementById('openWizardNav');
-    if (btn) btn.click();
-  }
 });

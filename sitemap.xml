@@ -1,8 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://comparaalarmas.es/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://comparaalarmas.es/gracias.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://comparaalarmas.es/aviso-legal.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://comparaalarmas.es/privacidad.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://comparaalarmas.es/cookies.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://comparaalarmas.es/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Landings locales -->
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-dos-hermanas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-tomares.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-mairena-del-aljarafe.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-espartinas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-bormujos.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-alcala-de-guadaira.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/alarmas-san-juan-de-aznalfarache.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Página de gracias -->
+  <url>
+    <loc>https://comparaalarmas.es/gracias.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legales -->
+  <url>
+    <loc>https://comparaalarmas.es/aviso-legal.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/privacidad.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://comparaalarmas.es/cookies.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
 </urlset>
