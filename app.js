@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('wizardForm');
   const errorMsg = document.getElementById('errorMsg');
   const loading = document.getElementById('loadingOverlay');
+  const submitBtn = document.getElementById('submitBtn');
 
   function openModal(){
     modal.setAttribute('aria-hidden','false');
@@ -23,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loading.classList.add('active');
     document.body.classList.add('no-scroll');
   }
-
   function hideLoading(){
     if(!loading) return;
     loading.classList.remove('active');
@@ -52,42 +52,59 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
   window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-  // pequeña validación antes de enviar, y spinner
+  // validación antes de enviar a Formspree
   form.addEventListener('submit', e => {
-    const nombre   = form.querySelector('#fnombre');
-    const telefono = form.querySelector('#ftelefono');
-    const ciudad   = form.querySelector('#fciudad');
-    const honey    = form.querySelector('input[name="correo"]');
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const nombre      = form.querySelector('#fnombre');
+    const telefono    = form.querySelector('#ftelefono');
+    const ciudad      = form.querySelector('#fciudad');
+    const cp          = form.querySelector('#fcpostal');
+    const honeypotBot = form.querySelector('input[name="_gotcha"]'); // anti-bot invisible
 
-    if (!nombre.value.trim() || !telefono.value.trim() || !ciudad.value.trim()){
+    // validar campos obligatorios
+    if(
+      !nombre.value.trim() ||
+      !telefono.value.trim() ||
+      !ciudad.value.trim() ||
+      !cp.value.trim()
+    ){
       e.preventDefault();
-      if (errorMsg) errorMsg.textContent = '⚠️ Rellena nombre, teléfono y tu zona.';
+      if (errorMsg) errorMsg.textContent = '⚠️ Rellena todos los campos obligatorios.';
       return;
     }
-    if (!telefono.checkValidity()){
+
+    // validar teléfono con el pattern del input
+    if(!telefono.checkValidity()){
       e.preventDefault();
       if (errorMsg) errorMsg.textContent = '⚠️ Revisa el teléfono.';
       return;
     }
-    if (honey && honey.value.trim() !== ""){
+
+    // validar código postal simple (5 números)
+    if(!cp.checkValidity()){
+      e.preventDefault();
+      if (errorMsg) errorMsg.textContent = '⚠️ Código postal no válido.';
+      return;
+    }
+
+    // anti bots
+    if(honeypotBot && honeypotBot.value.trim() !== ""){
       e.preventDefault();
       if (errorMsg) errorMsg.textContent = '⚠️ Error de validación.';
       return;
     }
 
-    // Si todo OK:
+    // si todo bien:
     if (errorMsg) errorMsg.textContent = '';
-    if(submitBtn){
+    if (submitBtn){
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Buscando mejor oferta...';
+      submitBtn.textContent = 'Enviando...';
     }
     showLoading();
-    // No hacemos preventDefault aquí → el form se enviará a lead.php
-    // y luego lead.php redirige a gracias.html
+    //aquí no hacemos e.preventDefault()
+    // dejamos que el navegador haga el POST normal a Formspree.
   });
 
-  // acceso directo con hash #comparativa
+  // acceso directo con #comparativa (abre el modal si llegas con hash)
   if (location.hash === '#comparativa') {
     const btn = document.getElementById('openWizardHero') || document.getElementById('openWizardNav');
     if (btn) btn.click();

@@ -390,7 +390,17 @@
         </p>
       </header>
 
-      <form id="wizardForm" action="lead.php" method="POST" novalidate>
+<form id="wizardForm"
+      action="https://formspree.io/f/movkjlgp" 
+      method="POST"
+      novalidate>
+
+  <!--  Redirección personalizada (no mostrará página de Formspree) -->
+  <input type="hidden" name="_redirect" value="https://comparaalarmas.es/gracias.html">
+
+  <!-- Campo oculto anti-bot -->
+  <input type="text" name="_gotcha" style="display:none">
+
   <section class="step step--active" data-title="Datos básicos" data-flow="any">
     <div class="final-fields">
 
@@ -402,38 +412,41 @@
       <div class="field">
         <label for="ftelefono">Teléfono *</label>
         <input id="ftelefono" name="telefono" type="tel"
-          inputmode="tel" pattern="[0-9 +]{6,}" placeholder="612 34 56 78" required>
+               inputmode="tel" pattern="[0-9 +]{6,}"
+               placeholder="612 34 56 78" required>
       </div>
 
       <div class="field">
-        <label for="fciudad">Ciudad / Zona *</label>
+        <label for="fciudad">Ciudad *</label>
         <input id="fciudad" name="ciudad" type="text"
-          placeholder="Dos Hermanas / Tomares / Mairena del Aljarafe"
-          required>
+               placeholder="Ejemplo: Dos Hermanas, Tomares, Mairena del Aljarafe..." required>
+      </div>
+
+      <div class="field">
+        <label for="fcpostal">Código Postal *</label>
+        <input id="fcpostal" name="codigo_postal" type="text"
+               pattern="[0-9]{5}" placeholder="41010" required>
       </div>
 
     </div>
 
-    <p class="small muted" style="margin-top:12px">
-      Ejemplo: “Dos Hermanas centro”, “Mairena del Aljarafe”, “San Juan de Aznalfarache”.
+    <button class="btn" id="submitBtn" type="submit" style="margin-top:16px;">
+      Enviar solicitud
+    </button>
+
+    <p class="small muted" style="margin-top:8px;">
+      Usamos tus datos solo para contactarte. Sin spam.
     </p>
 
-    <button class="btn" type="submit" style="margin-top:16px">Quiero mi comparativa</button>
-
-    <p class="small muted" style="margin-top:8px">
-      100% gratis. Solo usamos tus datos para darte precio e instalación.
-    </p>
-
+    <!-- Aquí se mostrarán mensajes de error si el usuario deja campos vacíos -->
     <p id="errorMsg" class="error" role="alert" aria-live="polite"></p>
+
   </section>
 
-  <div class="progress">
-    <div class="bar" id="progressBar" style="width:100%"></div>
-  </div>
 
-  <!-- honeypot anti bots -->
-  <input type="text" name="correo" style="display:none">
 </form>
+
+
 
     </div>
   </div>
