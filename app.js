@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const loading = document.getElementById('loadingOverlay');
   const submitBtn = document.getElementById('submitBtn');
 
+
+  const FORM_ENDPOINT = "https://formspree.io/f/movkjlgp";
+
   function openModal(){
     modal.setAttribute('aria-hidden','false');
     if (errorMsg) errorMsg.textContent = '';
@@ -52,13 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
   window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-  // validación antes de enviar a Formspree
-  form.addEventListener('submit', e => {
+  // envío personalizado (bloqueamos submit normal)
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); // <-- MUY IMPORTANTE: ahora SÍ lo bloqueamos siempre
+
     const nombre      = form.querySelector('#fnombre');
     const telefono    = form.querySelector('#ftelefono');
     const ciudad      = form.querySelector('#fciudad');
     const cp          = form.querySelector('#fcpostal');
-    const honeypotBot = form.querySelector('input[name="_gotcha"]'); // anti-bot invisible
+    const honeypotBot = form.querySelector('input[name="_gotcha"]');
 
     // validar campos obligatorios
     if(
@@ -67,44 +72,80 @@ document.addEventListener('DOMContentLoaded', () => {
       !ciudad.value.trim() ||
       !cp.value.trim()
     ){
-      e.preventDefault();
       if (errorMsg) errorMsg.textContent = '⚠️ Rellena todos los campos obligatorios.';
       return;
     }
 
-    // validar teléfono con el pattern del input
+    // validar teléfono
     if(!telefono.checkValidity()){
-      e.preventDefault();
       if (errorMsg) errorMsg.textContent = '⚠️ Revisa el teléfono.';
       return;
     }
 
-    // validar código postal simple (5 números)
+    // validar CP
     if(!cp.checkValidity()){
-      e.preventDefault();
       if (errorMsg) errorMsg.textContent = '⚠️ Código postal no válido.';
       return;
     }
 
-    // anti bots
+    // anti bot
     if(honeypotBot && honeypotBot.value.trim() !== ""){
-      e.preventDefault();
       if (errorMsg) errorMsg.textContent = '⚠️ Error de validación.';
       return;
     }
 
-    // si todo bien:
+    // todo ok → UI de envío
     if (errorMsg) errorMsg.textContent = '';
     if (submitBtn){
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
     }
     showLoading();
-    //aquí no hacemos e.preventDefault()
-    // dejamos que el navegador haga el POST normal a Formspree.
+
+    // construimos payload para Formspree
+    const payload = {
+      nombre: nombre.value.trim(),
+      telefono: telefono.value.trim(),
+      ciudad: ciudad.value.trim(),
+      codigo_postal: cp.value.trim()
+    };
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        // éxito → redirigimos nosotros a tu página gracias
+        window.location.href = "https://comparaalarmas.es/gracias.html";
+        return;
+      } else {
+        // fallo en Formspree
+        hideLoading();
+        if (submitBtn){
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar solicitud';
+        }
+        if (errorMsg) errorMsg.textContent = '⚠️ Error enviando el formulario. Llámanos al 617 525 827.';
+      }
+
+    } catch (err) {
+      // error de red / conexión
+      hideLoading();
+      if (submitBtn){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar solicitud';
+      }
+      if (errorMsg) errorMsg.textContent = '⚠️ No se ha podido enviar. Llámanos al 617 525 827.';
+    }
   });
 
-  // acceso directo con #comparativa (abre el modal si llegas con hash)
+  // acceso directo con #comparativa
   if (location.hash === '#comparativa') {
     const btn = document.getElementById('openWizardHero') || document.getElementById('openWizardNav');
     if (btn) btn.click();
