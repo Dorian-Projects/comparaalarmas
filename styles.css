@@ -64,7 +64,41 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
 .hero h1{font-size:clamp(2.2rem,4vw + 1rem,3.2rem);margin:0 0 12px}
 .hero p{margin:0 0 24px;font-size:1.15rem;opacity:.97}
 .hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
-.trust{margin-top:18px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:1rem;opacity:.95}
+
+/* NEW: bloque de confianza con teléfono integrado */
+.trust{
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  font-size:1rem;
+  color:#fff;
+  opacity:.95;
+  line-height:1.4;
+}
+.trust span{display:flex;align-items:center;gap:6px;}
+
+/* NEW: estilo teléfono */
+.trust-phone{
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.phone-emoji{
+  font-size:1rem;
+  line-height:1;
+}
+.trust-phone-link{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+}
+.trust-phone-link:hover{
+  text-decoration:underline;
+}
+
 .contact-revealed{margin-top:10px;font-weight:700}
 
 /* Métricas */
@@ -102,8 +136,8 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
   border-radius:18px;
   box-shadow:0 20px 60px rgba(0,0,0,.35);
   position:relative;
-  overflow:auto;                 /* permite scroll interno */
-  max-height:92vh;               /* no se sale de la pantalla */
+  overflow:auto;
+  max-height:92vh;
   -webkit-overflow-scrolling:touch;
 }
 .close{position:absolute;top:10px;right:14px;width:40px;height:40px;border:none;background:#eef2f7;border-radius:50%;font-size:22px;cursor:pointer}
@@ -120,7 +154,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
 .step--leaving{animation:move-up .22s ease forwards}
 @keyframes move-up{to{opacity:.3;transform:translateY(-12px)}}
 
-/* ===== Radios/card clicables en iOS ===== */
+/* Radios/card clicables */
 .opt, .opt-card{position:relative}
 .opt input,
 .opt-card input{
@@ -181,7 +215,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
   }
 }
 
-/* ===== Overlay de carga ===== */
+/* Overlay de carga */
 .loading-overlay {
   position: fixed;
   inset: 0;
@@ -253,18 +287,16 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
   overflow: hidden;
 }
 
-/* ===== Footer mejorado ===== */
+/* Footer */
 .site-footer{
   background: var(--brand);
   color:#d9e6f7;
   margin-top: 40px;
   position: relative;
   isolation: isolate;
-  /* sutil línea superior */
   box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
 }
 .site-footer::before{
-  /* suave gradiente arriba para dar profundidad */
   content:"";
   position:absolute; inset:0 0 auto 0; height:8px;
   background: linear-gradient(to bottom, rgba(255,255,255,.08), transparent);
@@ -319,7 +351,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
   .footer-links a{ padding:8px 12px; }
 }
 
-/* ===== Gracias (minimal) ===== */
+/* Página de gracias (si la usas) */
 .ty-bg{
   background: var(--bg);
   color:#111827;
@@ -412,4 +444,42 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
   color:#6b7280;
   font-size:.95rem;
   text-align:center;
+}
+
+/* ===== HERO doble botón: Solicitar comparativa + Llamar ahora ===== */
+.hero__cta--stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn--ghost.btn--call {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn--ghost.btn--call:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #fff;
+}
+
+.call-emoji {
+  line-height: 1;
+  font-size: 1rem;
+}
+
+/* Línea de confianza sin el teléfono */
+.trust--no-phone {
+  margin-top: 16px;
 }
